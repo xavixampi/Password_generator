@@ -3,7 +3,7 @@ import random
 from tkinter import *
 
 #Creamos una variable con los caracteres que queremos que se puedan utilzar para crear la contraseña
-chars='abcdefghijklmñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ123456789!@#$%&*'
+chars='abcdefghijklmñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ1234567890!@#$%&*'
 
 #Crear la ventana y personalizarla
 root=Tk()
@@ -24,7 +24,7 @@ def Number():
                 password_characters=random.choice(chars)
                 password+=password_characters
         #Mostraremos en pantalla la contraseña generada
-        l2=Entry(root,text=password,bg='seagreen2',fg='black',justify='center')
+        l2=Entry(root,justify='center')
         l2.insert(0,password)  
         l2.configure(state='readonly')
         l2.place(x=0,y=300,height=15,width=800)
@@ -35,7 +35,7 @@ def Number():
 
     #Si el numero no se ha podido convertir en entero nos saldrá un aviso
     except ValueError:
-        answer.config(text='Error\nIntroduce solo numeros enteros',bg='red4',fg='gold')
+        answer.config(text='Error\nIntroduce integer numbers',bg='red4',fg='gold')
 
 
 #Creamos una etiqueta para mostrar el título del pantalla
@@ -44,14 +44,14 @@ ltitle.place(x=200,y=20,width=400,height=100)
 ltitle.configure(font=("Arial", 16, 'bold',"italic"))
 
 #Creamos una etiqueta y una entrada de texto para introducir el numero de caracteres que queremos
-l1=Label(root,text='Number of characters:')
+l1=Label(root,text='Number of characters:',bg='magenta3',fg='white')
 l1.place(x=150+37.5,y=100,height=50,width=200)
 
-e1=Entry(root)
+e1=Entry(root,bg='orchid2',fg='black')
 e1.place(x=350+37.5,y=100,height=50,width=200)
 
 #Creamos un boton para enviar la informacion introducida en e1. El comando es la función Number, creada anteriormente
-b1=Button(root,text='Send',command=Number)
+b1=Button(root,text='Send',bg='orchid2',fg='black',command=Number)
 b1.place(x=589,y=100,height=50,width=50)
 
 #Etiqueta de texto para decir que se está generando la contraseña
